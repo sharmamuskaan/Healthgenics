@@ -7,3 +7,17 @@
     display: none;
   }
 }
+
+.Head {
+  font-size: 50px;
+}
+
+@media (max-width: 450px) {
+  .Head {
+    padding-top: 10px;
+    margin-bottom: 0;
+    font-size: 25px;
+    font-weight: 500;
+    display: block;
+  }
+}
