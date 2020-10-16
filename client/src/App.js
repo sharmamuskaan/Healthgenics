@@ -11,6 +11,7 @@ import Login from './containers/Login/Login';
 import Register from './containers/Register/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Dashboard from './components/Dashboard/Dashboard';
+import Tracker from './components/Dashboard/Tracker';
 
 class App extends Component {
 
@@ -30,11 +31,12 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/register' component={Register} />
-            {/* <Route exact path='/dashboard' component={Dashboard} /> */}
+            {/* <PrivateRoute exact path="/settings" component={Settings} /> */}
+            <PrivateRoute exact path="/tracker" component={Tracker} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <Route exact path='/register' component={Register} />
+            <Route exact path='/login' component={Login} />
+            <Route path='/' component={Home} />    
           </Switch>
         </BrowserRouter>
       </Provider>

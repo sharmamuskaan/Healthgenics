@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import * as actionCreators from "../../store/actions/index";
 
 class DashDisplay extends Component { 
 
@@ -89,9 +88,9 @@ class DashDisplay extends Component {
   render() {
 
     let screen = (
-      <React.Fragment>
-      <div className="row mt-4 mb-4">
-        <div className="col-4 mx-5">
+      <div className="container">
+        <div className="row mt-4">
+          <div className="col-sm-12 col-md-3">  
             <h4>
               <strong>Welcome,</strong> {this.props.auth.user.name}
               <p className="flow-text grey-text text-darken-1">
@@ -99,77 +98,89 @@ class DashDisplay extends Component {
               </p>
             </h4>
             <div className="row">
-              <div className="col mt-3">
-                <button type="button" data-toggle="modal" data-target="#exampleModal" className="btn btn-danger"><i className="fas fa-plus-square fa-3x"></i><br/>Create New Task</button>
+              <div className="col-12 mt-3">
+                <button type="button" data-toggle="modal" data-target="#exampleModal" className="btn btn-danger">
+                  <i className="fas fa-plus-square fa-3x"></i><br/>Create New Task
+                  </button>
               </div>
             </div>
-        </div>
-        <div className="col-6">
-          {this.state.tasks.map(task => (
-            <div className="card my-2 border border-danger" key={task._id} style={task.status==='Completed'?{backgroundColor:'silver'}:{backgroundColor:'white'}}>
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-6">
-                    <h4 className="card-title">{task.name}</h4>
+          </div>
+
+          <div className="col-sm-12 col-md-9">
+            {this.state.tasks.map(task => (
+              <div className="card my-2 border border-danger" 
+                key={task._id} 
+                style={task.status==='Completed'?{backgroundColor:'silver'}:{backgroundColor:'white'}}
+                >
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-6">
+                      <h4 className="card-title">{task.name}</h4>
+                    </div>
+                    <div className="col-6 d-flex flex-row-reverse">
+                      <i className="far fa-trash-alt" onClick={(id) => this.onDelete(task._id)} style={{color:'red'}}></i>
+                    </div>
                   </div>
-                  <div className="col-6 d-flex flex-row-reverse"><i className="far fa-trash-alt" onClick={(id) => this.onDelete(task._id)} style={{color:'red'}}></i></div>
+                  <p className="card-text"><strong>Description: {task.description}</strong></p>
+                  <div className="row">
+                    <div className="col-sm-12 col-md-6">
+                      <p className="card-text" 
+                        style={task.status==='Completed'?{color:'green'}:{color:'red'}}
+                        >
+                          <strong>Status: {task.status}</strong>
+                      </p>
+                    </div>
+                    <div className="col-sm-12 col-md-6">
+                      <p className="card-text d-flex flex-row-reverse" style={{color:'blue'}}>Deadline: {task.deadline}</p>
+                    </div>
+                  </div>
+                  {task.status !== 'Completed' ? <button className="btn btn-success mt-2" onClick={(id) => this.onDone(task._id)}>Mark as Done</button>: null}
                 </div>
-                <p className="card-text"><b>Description: {task.description}</b></p>
-                <div className="row">
-                  <div className="col-6">
-                    <p className="card-text" style={task.status==='Completed'?{color:'green'}:{color:'red'}}><b>Status: {task.status}</b></p>
-                  </div>
-                  <div className="col-6">
-                    <p className="card-text d-flex flex-row-reverse" style={{color:'blue'}}>Deadline: {task.deadline}</p>
-                  </div>
-                </div>
-                {task.status !== 'Completed' ? <button className="btn btn-success mt-2" onClick={(id) => this.onDone(task._id)}>Mark as Done</button>: null}
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Create Task</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <form>
-                <div className="form-group">
+        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Create Task</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <form>
+                  <div className="form-group">
                     <label htmlFor="taskname">Task Name</label>
                     <input type="text" 
                         className="form-control" id="taskname" 
                         onChange={this.onChange}
                         value={this.state.taskname}
                         required/>
-                </div>
-                <div className="form-group">
+                  </div>
+                  <div className="form-group">
                     <label htmlFor="taskdescription">Description</label>
                     <textarea 
                         className="form-control" 
                         onChange={this.onChange}
                         value={this.state.taskdescription}
                         id="taskdescription" required />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="taskdeadline">Deadline: </label>
-                  <input type="date" id="taskdeadline" className="form-control" onChange={this.onChange}/>
-                </div>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary" onClick={this.createTask} data-dismiss="modal">Add Task</button>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="taskdeadline">Deadline: </label>
+                    <input type="date" id="taskdeadline" className="form-control" onChange={this.onChange}/>
+                  </div>
+                </form>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" className="btn btn-primary" onClick={this.createTask} data-dismiss="modal">Add Task</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      </React.Fragment>
     );
 
     if(this.state.loading) {
