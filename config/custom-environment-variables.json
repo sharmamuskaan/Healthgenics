@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey":"healthgenics_jwtPrivateKey",
+    "mongoURI":"healthgenics_mongoURI"
+}
