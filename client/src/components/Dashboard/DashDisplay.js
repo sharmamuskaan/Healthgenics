@@ -98,7 +98,7 @@ class DashDisplay extends Component {
               </p>
             </h4>
             <div className="row">
-              <div className="col-12 mt-3">
+              <div className="col-12 mt-2 mb-2">
                 <button type="button" data-toggle="modal" data-target="#exampleModal" className="btn btn-danger">
                   <i className="fas fa-plus-square fa-3x"></i><br/>Create New Task
                   </button>
@@ -108,7 +108,7 @@ class DashDisplay extends Component {
 
           <div className="col-sm-12 col-md-9">
             {this.state.tasks.map(task => (
-              <div className="card my-2 border border-danger" 
+              <div className="card mb-5 border border-danger" 
                 key={task._id} 
                 style={task.status==='Completed'?{backgroundColor:'silver'}:{backgroundColor:'white'}}
                 >
