@@ -8,7 +8,7 @@ const {User} = require('../../models/user');
 
 function validateInput(user) {
   const schema = Joi.object({
-    name: Joi.string().min(5).max(50).required(),
+    name: Joi.string().min(3).max(50).required(),
     age: Joi.number().integer().min(10).required(),
     height: Joi.number().integer().min(10).required(),
     weight: Joi.number().integer().min(10).required(),  

@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../assets/images/logo.jpg'
+import Logo from '../../assets/images/healthcare.png'
 
 const navbar = props => (
 
@@ -7,7 +7,7 @@ const navbar = props => (
         <div className='container'>
             <a className="navbar-brand h1" href="/">
                 <img src={Logo} width="30" height="30" className="d-inline-block align-top mx-2" alt="" loading="lazy"/>
-                HEALTHCHECK
+                HEALTHGENICS
             </a>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

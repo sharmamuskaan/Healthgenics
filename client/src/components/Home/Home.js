@@ -16,7 +16,7 @@ const homeInfo = props => (
       <h1 className="display-4">Your One Stop Solution for</h1>
       <h1 className="display-2"><strong>BEING HEALTHY</strong></h1>		
       <hr className="my-4" />
-      <p className='lead'><strong>LETS GET STARTED></strong></p>
+      <p className='lead'><strong>LETS GET STARTED <span role="img" aria-labelledby=''>❤️</span></strong></p>
     </div>
   </React.Fragment>
 );
