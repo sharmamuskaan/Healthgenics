@@ -1,4 +1,4 @@
 {
-    "jwtPrivateKey":"",
-    "mongoURI":""
+    "jwtPrivateKey":"12345",
+    "mongoURI":"mongodb+srv://shivam:bookgenics@bookgenics.3ekud.mongodb.net/healthapp_db?retryWrites=true&w=majority"
 }

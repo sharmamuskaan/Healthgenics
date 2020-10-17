@@ -64,17 +64,14 @@ router.put('/:id', auth, async (req, res) => {
     let task = await Task.findOne({_id: req.params.id});
     if(!task) return res.status(400).send('Error Occured');
 
-    if(req.body.status === 'Completed') {
-      task.status = 'Completed';
-      await task.save();
-      task = user.tasks.find(t => t._id.toString() === req.params.id);
-      task.status = 'Completed';
-      await user.save();
-      res.send(user.tasks);
-    }
+    task.status = 'Completed';
+    await task.save();
+    task = user.tasks.find(t => t._id.toString() === req.params.id);
+    task.status = 'Completed';
+    await user.save();
+    res.send(user.tasks);
   }
   catch(err) {
-    console.log('ERR');
     res.send(err);
   }
 });
@@ -95,7 +92,6 @@ router.delete('/:id', auth, async (req, res) => {
     
   }
   catch(err) {
-    console.log('ERR');
     res.send(err);
   }
 });

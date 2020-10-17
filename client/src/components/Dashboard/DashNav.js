@@ -13,10 +13,10 @@ class DashNav extends Component {
         
         <nav className="navbar navbar-light bg-light">
           <Link to='/dashboard'>
-            <a className="navbar-brand">
+            <p className="navbar-brand">
             <img src={ICON} width="60" height="60" className="d-inline-block align-top mx-2" alt="" loading="lazy" />
-              <span className={"display-4 "+classes.Head}><strong>HEALTHCHECK</strong></span>
-            </a>
+              <span className={"display-4 "+classes.Head}><strong>HEALTHGENICS</strong></span>
+            </p>
           </Link>
           <span className={"display-4 "+classes.Yes}>The heart of your healthcare</span>
         </nav>

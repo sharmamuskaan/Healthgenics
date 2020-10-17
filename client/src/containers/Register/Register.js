@@ -33,7 +33,7 @@ class Register extends Component {
     height: "",
     weight: "",
     gender: "Male",
-    goals: "Weight Loss",
+    goal: "Weight Loss",
     loading: false,
     errors: {},
   };
@@ -55,7 +55,7 @@ class Register extends Component {
       height : this.state.height,
       weight: this.state.weight,
       gender: this.state.gender,
-      goals: this.state.goals
+      goal: this.state.goal
     };
 
     this.props.registerUser(newUser, this.props.history);
@@ -163,20 +163,17 @@ class Register extends Component {
                             value={this.state.gender}>
                             <option>Male</option>
                             <option>Female</option>
-                            <option>Others</option>
                           </select>
                       </div>
                     </div>
                   </div>
                   <div className="form-group mt-2">
-                    <label htmlFor="goals" >Fitness Goals</label>
-                      <select className="form-control" id="goals" onChange={this.onChange}
-                        value={this.state.goals}>
+                    <label htmlFor="goal" >Fitness Goal</label>
+                      <select className="form-control" id="goal" onChange={this.onChange}
+                        value={this.state.goal}>
                         <option>Weight Loss</option>
                         <option>Weight Gain</option>
                         <option>Stay Healthy</option>
-                        <option>Get Lean</option>
-                        <option>Get Shredded</option>
                       </select>
                   </div>
                   <button type="submit" className="btn btn-primary mt-2" onClick={this.onSubmit}>Submit</button>
