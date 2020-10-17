@@ -47,7 +47,7 @@ class TrackDisplay extends Component {
       this.setState({loading: true});
       const res = await axios.get('/api/user/foods');
       this.setState({foods: res.data})
-      const res2 = await axios.get('/api/user/login/me');
+      const res2 = await axios.get('/api/users/user/me');
       this.setState({goal: res2.data.goal,name: res2.data.name,gender: res2.data.gender,prevTracks: res2.data.prevTracks,todayIntake: res2.data.todayIntake, increase:res2.data.increase});
       this.setState({loading: false});
     }

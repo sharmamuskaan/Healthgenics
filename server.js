@@ -10,6 +10,7 @@ const register = require('./routes/user/register');
 const task = require('./routes/tasks/task');
 const track = require('./routes/tracks/track');
 const food = require('./routes/foods/food');
+const info = require('./routes/user/info');
 
 const db = config.get('mongoURI');
 
@@ -30,6 +31,7 @@ app.use('/api/user/register', register);
 app.use('/api/user/tracks', track);
 app.use('/api/user/tasks', task);
 app.use('/api/user/foods', food);
+app.use('/api/users/user', info);
 
 if(process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
