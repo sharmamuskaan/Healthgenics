@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import DashNav from './DashNav';
 import SettingDisplay from './SettingDisplay';
-import classes from './SettingDisplay.module.css';
 
 class Track extends Component {
   render() {
     return(
-      <div className={classes.Body}>
+      <div>
         <DashNav />
         <SettingDisplay />
         <footer className="page-footer fixed-bottom" style={{backgroundColor: '#00695c', height:'25px'}}>

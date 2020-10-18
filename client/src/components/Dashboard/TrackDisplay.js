@@ -223,6 +223,7 @@ class TrackDisplay extends Component {
               <div className="col-sm-12 col-md-4">
                 <select className="custom-select mt-3" onChange={this.waterChangeHandler}>
                   <option selected>Quantity (in litres) </option>
+                  <option>0</option>
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -237,21 +238,21 @@ class TrackDisplay extends Component {
             </div>:null}
           </div>
           <hr />
-          <div className='col-sm-12 col-md-2 mt-2'>
-            <h5>Previous Tracks</h5>
+          <div className='col-sm-12 col-md-2 mt-2 text-center' style={{backgroundColor:'white'}}>
+            <h5 style={{color:'blue'}} className='mt-2'><b>Previous Tracks</b></h5>
             <hr />
             {this.state.prevTracks.length >= 1 ?
               <div className="card mb-5" >
-                <div className="card-body">
-                <h5 className="card-title" style={{color: 'green'}}>Day Before Yesterday:</h5>
+                <div className="card-body border border-danger">
+                <h5 className="card-title" style={{color: 'green'}}>Yesterday:</h5>
                 <h4 className="card-text"><b>Calories: {this.state.prevTracks[0].calories}</b></h4>
                 </div>
               </div>:null
             }
             {this.state.prevTracks.length >= 2 ?
               <div className="card mb-5" >
-                <div className="card-body">
-                  <h5 className="card-title" style={{color: 'green'}}>Yesterday:</h5>
+                <div className="card-body border border-danger" >
+                  <h5 className="card-title" style={{color: 'green'}}>Day Before Yesterday:</h5>
                   <h4 className="card-text"><b>Calories: {this.state.prevTracks[1].calories}</b></h4>
                 </div>
               </div>:null

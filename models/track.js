@@ -8,10 +8,6 @@ const trackSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  foods: {
-    type: Array,
-    default: []
-  },
   calories: Number
 });
 

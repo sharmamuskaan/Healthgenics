@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { Link } from "react-router-dom";
 
 const homeInfo = props => (
-  <React.Fragment>
+  <div>
     <Navbar>
       <Link to='/login'>
         <button className="btn btn-outline-success my-2 my-sm-0 mx-3">Login</button>
@@ -18,7 +18,7 @@ const homeInfo = props => (
       <hr className="my-4" />
       <p className='lead'><strong>LETS GET STARTED <span role="img" aria-labelledby=''>❤️</span></strong></p>
     </div>
-  </React.Fragment>
+  </div>
 );
 
 export default homeInfo;

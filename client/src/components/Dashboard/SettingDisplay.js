@@ -68,46 +68,46 @@ class SettingDisplay extends Component {
         </div>
         <form className="container">
 		      <div className="form-row">
-            <div className="col-sm-12 col-md-3">
+            <div className="col-sm-12 col-md-3 ml-5">
               <label className="mt-2 lead mx-2"><b>Name</b></label>
             </div>
-    		    <div className="col-7">
+    		    <div className="col-7 ml-5">
       			  <input type="text" className="form-control" id="name" defaultValue={this.state.name} onChange={this.onChangeHandler}/>
     		    </div>
     	    </div>
         	<br />
           <div className="form-row">
-          <div className="col-sm-12 col-md-3">
+          <div className="col-sm-12 col-md-3 ml-5">
               <label className="mt-2 lead mx-2"><b>Height (cms)</b></label>
             </div>
-    		    <div className="col-7">
+    		    <div className="col-7 ml-5">
       			  <input type="text" className="form-control" id="height" defaultValue={this.state.height} onChange={this.onChangeHandler}/>
     		    </div>
     	    </div>
           <br />
 		      <div className="form-row">
-            <div className="col-sm-12 col-md-3">
+            <div className="col-sm-12 col-md-3 ml-5">
               <label className="mt-2 lead mx-2"><b>Weight (kgs)</b></label>
             </div>
-    		    <div className="col-7">
+    		    <div className="col-7 ml-5">
       			  <input type="text" className="form-control" id="weight" defaultValue={this.state.weight} onChange={this.onChangeHandler}/>
     		    </div>
     	    </div>
           <br />
           <div className="form-row">
-            <div className="col-sm-12 col-md-3">
+            <div className="col-sm-12 col-md-3 ml-5">
               <label className="mt-2 lead mx-2"><b>Age (yrs)</b></label>
             </div>
-    		    <div className="col-7">
+    		    <div className="col-7 ml-5">
       			  <input type="text" className="form-control" id="age" defaultValue={this.state.age} onChange={this.onChangeHandler}/>
     		    </div>
     	    </div>
           <br />
           <div className="form-row">
-            <div className="col-sm-12 col-md-3">
+            <div className="col-sm-12 col-md-3 ml-5">
               <label className="mt-2 lead mx-2"><b>Fitness Goal</b></label>
             </div>
-    		    <div className="col-7">
+    		    <div className="col-7 ml-5">
               <select className="form-control" id="goal" defaultValue={this.state.goal} onChange={this.onChangeHandler}>
                 <option>Weight Loss</option>
                 <option>Weight Gain</option>
@@ -118,10 +118,10 @@ class SettingDisplay extends Component {
           <br />
           <div className="form-row">
             <div className="col-sm-12 col-md-5 mt-3">
-              <button className="btn btn-primary" onClick={this.applyChangeHandler}>Apply Changes</button>
+              <button className="btn btn-primary ml-5" onClick={this.applyChangeHandler}>Apply Changes</button>
             </div>
-    		    <div className="col-sm-12 col-md-7 mt-3">
-              <Link to='/pass'><button className="d-flex justify-content-end btn btn-danger mb-5 ml-auto">Change Password</button></Link>
+    		    <div className="col-sm-12 col-md-7 mb-5">
+              <Link to='/pass'><button className="d-flex justify-content-end btn btn-danger ml-auto">Change Password</button></Link>
     		    </div>
     	    </div>
         </form>

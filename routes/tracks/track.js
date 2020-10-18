@@ -54,18 +54,6 @@ router.post('/', auth, async (req, res) => {
       if((req.user.email === track.email) && (t_date.toString() === today_date.toString())) {
         found = true;
         track.calories += ((+req.body.gramSelected/100)*(food.caloriesPerHundredGram));
-        let nhimila = true;
-        for(let index in track.foods) {
-          let f = track.foods[index];
-          if(f['0'] === food) {
-            nhimila = false;
-            f['1']+= (+req.body.gramSelected);
-            break;
-          }
-        }
-        if(nhimila) {
-          track.foods.push({'0':food, '1':req.body.gramSelected});
-        }
         await track.save();
         break;
       }
@@ -75,7 +63,6 @@ router.post('/', auth, async (req, res) => {
       let track = new Track({
         date: convert(today),
         email: req.user.email,
-        foods: [{'0':food, '1':req.body.gramSelected}],
         calories: (+req.body.gramSelected/100)*(food.caloriesPerHundredGram)
       });
       await track.save();
@@ -117,18 +104,6 @@ router.post('/', auth, async (req, res) => {
         let today_date = convert(today);
         if(t_date.toString() === today_date.toString()) {
           t.calories += (+req.body.gramSelected/100)*(food.caloriesPerHundredGram);
-          let nhimila = true;
-          for(let index in t.foods) {
-            let f = t.foods[index];
-            if(f['0'] === food) {
-              nhimila = false;
-              f['1']+= (+req.body.gramSelected);
-              break;
-            }
-          }
-          if(nhimila) {
-            t.foods.push({'0':food, '1':req.body.gramSelected});
-          }
         }
       }
       await user.save();

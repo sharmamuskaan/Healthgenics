@@ -61,7 +61,7 @@ class Login extends Component {
             <button className="btn btn-outline-success my-2 my-sm-0">Register</button>
           </Link>
         </Navbar>
-        <div className="container border mt-4  mb-4">
+        <div className="container border mt-4  mb-4" style={{backgroundColor: 'white'}}>
           <div className="row mt-4 mb-4">
             <div className="col s8 offset-s2">
               <Link to="/"><span>Back To Home</span></Link>
